@@ -5,6 +5,7 @@ import logo from '../../assets/4oclock.webp'
 import { IoSearchOutline } from 'react-icons/io5';
 import { TfiClose } from 'react-icons/tfi';
 import { VscChromeClose, VscClose, VscMenu } from 'react-icons/vsc';
+import { NavLink } from 'react-router-dom';
 
 const Navbar = () => {
     const [open, setOpen] = useState(false);
@@ -30,13 +31,13 @@ const Navbar = () => {
     }, [])
     return (
         <>
-            <nav className='flex justify-between items-center h-16 border-b lg:border-none font-montserrat text-[#01204E] max-w-6xl mx-auto px-4 lg:px-0 relative'>
+            <nav className='flex justify-between items-center h-16 border-b  font-montserrat text-[#01204E] max-w-6xl mx-auto px-4 lg:px-0 relative'>
                 <button onClick={() => setMenu(!menu)} className='lg:hidden text-[#01204E] text-xl lg:text-2xl'>{!menu ? <VscMenu /> : <VscChromeClose />}</button>
                 <img className='w-28 lg:w-48' src={logo} alt="" />
                 {/* Route Section */}
                 <div className={`flex justify-center items-center lg:gap-6 absolute lg:static text-center ${menu ? 'top-16 left-0 flex-col lg:flex-row bg-white lg:bg-white w-full' : 'hidden'}`}>
-                    <a className='hover:bg-gray-100 lg:hover:bg-white w-full lg:w-auto py-3 border-b lg:border-none' href="">Home</a>
-                    <a className='hover:bg-gray-100 lg:hover:bg-white w-full lg:w-auto py-3 border-b lg:border-none' href="">All Watches</a>
+                    <NavLink className='hover:bg-gray-100 lg:hover:bg-white w-full lg:w-auto py-3 border-b lg:border-none' href="">Home</NavLink>
+                    <NavLink className='hover:bg-gray-100 lg:hover:bg-white w-full lg:w-auto py-3 border-b lg:border-none' href="">All Watches</NavLink>
                 </div>
                 {/* user and cart section */}
                 <div className='flex justify-center items-center gap-4 lg:gap-6 text-xl lg:text-2xl'>
