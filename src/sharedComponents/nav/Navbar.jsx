@@ -4,11 +4,14 @@ import { LiaShoppingBagSolid } from 'react-icons/lia';
 import logo from '../../assets/4oclock.webp'
 import { IoSearchOutline } from 'react-icons/io5';
 import { TfiClose } from 'react-icons/tfi';
-import { VscChromeClose, VscClose, VscMenu } from 'react-icons/vsc';
+import { VscChromeClose, VscMenu } from 'react-icons/vsc';
 import { NavLink } from 'react-router-dom';
+import Cart from '../../cart/Cart';
 
 const Navbar = () => {
     const [open, setOpen] = useState(false);
+    const [cartOpen, setCartOpen] = useState(false);
+    // const [cartClose, setCartClose] = useState(false);
     const [menu, setMenu] = useState(false);
     const searchRef = useRef(null);
     console.log(searchRef);
@@ -29,6 +32,7 @@ const Navbar = () => {
             document.removeEventListener('mousedown', handleClickOutside)
         }
     }, [])
+
     return (
         <>
             <nav className='flex justify-between items-center h-16 border-b  font-montserrat text-[#01204E] max-w-6xl mx-auto px-4 lg:px-0 relative'>
@@ -43,7 +47,7 @@ const Navbar = () => {
                 <div className='flex justify-center items-center gap-4 lg:gap-6 text-xl lg:text-2xl'>
                     <button><AiOutlineUser /></button>
                     <button className='hover:scale-125 duration-200' onClick={() => setOpen(true)}><IoSearchOutline /></button>
-                    <button><LiaShoppingBagSolid /></button>
+                    <button onClick={() => setCartOpen(true)}><LiaShoppingBagSolid /></button>
                 </div>
 
             </nav>
@@ -56,6 +60,8 @@ const Navbar = () => {
                 <button onClick={() => setOpen(false)} className='text-xl text-end '><TfiClose />
                 </button>
             </div>
+            {/* cart */}
+            <Cart cartOpen = {cartOpen} setCartOpen = {setCartOpen}></Cart>
         </>
     );
 };
