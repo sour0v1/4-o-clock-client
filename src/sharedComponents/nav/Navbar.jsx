@@ -39,13 +39,13 @@ const Navbar = () => {
                 <button onClick={() => setMenu(!menu)} className='lg:hidden text-[#01204E] text-xl lg:text-2xl'>{!menu ? <VscMenu /> : <VscChromeClose />}</button>
                 <img className='w-28 lg:w-48' src={logo} alt="" />
                 {/* Route Section */}
-                <div className={`flex justify-center items-center lg:gap-6 absolute lg:static text-center ${menu ? 'top-16 left-0 flex-col lg:flex-row bg-white lg:bg-white w-full' : 'hidden'}`}>
+                <div className={`flex justify-center items-center lg:gap-6 absolute lg:static text-center ${menu ? 'top-16 left-0 flex-col lg:flex-row bg-white lg:bg-white w-full' : 'hidden lg:flex'}`}>
                     <NavLink className='hover:bg-gray-100 lg:hover:bg-white w-full lg:w-auto py-3 border-b lg:border-none' href="">Home</NavLink>
                     <NavLink className='hover:bg-gray-100 lg:hover:bg-white w-full lg:w-auto py-3 border-b lg:border-none' href="">All Watches</NavLink>
                 </div>
                 {/* user and cart section */}
                 <div className='flex justify-center items-center gap-4 lg:gap-6 text-xl lg:text-2xl'>
-                    <button><AiOutlineUser /></button>
+                    <NavLink to = '/login'><AiOutlineUser /></NavLink>
                     <button className='hover:scale-125 duration-200' onClick={() => setOpen(true)}><IoSearchOutline /></button>
                     <button onClick={() => setCartOpen(true)}><LiaShoppingBagSolid /></button>
                 </div>
